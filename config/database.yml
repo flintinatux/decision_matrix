@@ -18,7 +18,7 @@ development:
   database: decision_matrix_development
   pool: 5
   username: decision_matrix
-  password:
+  password: decision_matrix
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,12 +44,4 @@ test:
   database: decision_matrix_test
   pool: 5
   username: decision_matrix
-  password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: decision_matrix_production
-  pool: 5
-  username: decision_matrix
-  password:
+  password: decision_matrix

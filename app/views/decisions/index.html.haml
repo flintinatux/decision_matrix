@@ -1,0 +1,15 @@
+.row-fluid
+  .span12
+    - if @decisions.any?
+      %ul.nav.nav-list
+        = render @decisions
+      = will_paginate
+
+    - else
+      %h3.center Looks like you don't have any decisions yet! 
+      %p.center Click the button below to start a new one.
+
+.row-fluid
+  .span12
+    .center
+      = link_to 'New decision', new_decision_path, class: 'btn btn-large btn-primary'

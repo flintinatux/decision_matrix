@@ -28,6 +28,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'bower-rails'
   gem 'haml-rails'
 end
 

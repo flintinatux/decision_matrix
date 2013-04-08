@@ -1,0 +1,11 @@
+{
+   "lib": {
+    "dependencies": {      
+    }    
+  },
+  "vendor": {
+    "dependencies": {
+      "rails-behaviors": "git://github.com/josh/rails-behaviors.git"
+    }
+  }
+}
