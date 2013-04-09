@@ -1,2 +1,27 @@
-%h1 Decisions#show
-%p Find me in app/views/decisions/show.html.haml
+#header{ href: edit_decision_path(@decision) }
+  %h3.span1= @decision.title
+  - if @decision.notes?
+    %p.muted= @decision.notes
+
+%ul.nav.nav-tabs.nav-stacked
+  %li
+    = link_to '#' do
+      %strong Criteria 
+      (5)
+      %i.icon-chevron-right.pull-right
+  %li
+    = link_to '#' do
+      %strong Choices 
+      (3)
+      %i.icon-chevron-right.pull-right
+
+%hr
+
+= link_to decisions_path, class: 'btn' do
+  %icon.icon-chevron-left
+  Back
+
+.pull-right
+  = link_to '#', class: 'btn btn-primary' do
+    Decide it!
+    %icon.icon-ok.icon-white

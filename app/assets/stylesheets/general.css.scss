@@ -1,3 +1,6 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -6,6 +9,53 @@ $grayMediumLight: #eaeaea;
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
+}
+
+@mixin ellipsized_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* headers */
+
+#header {
+  padding-bottom: 9px;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid #eee;
+
+  h3 {
+    @include ellipsized_text;
+    margin: 0;
+  }
+
+  p {
+    @include ellipsized_text;
+  }
+}
+
+/* navigation */
+
+ul.nav.nav-tabs.nav-stacked {
+  a {
+    @include ellipsized_text
+  }
+}
+
+[href]:hover {
+  cursor: pointer;
+}
+
+/* buttons */
+
+.btn i {
+  vertical-align: text-top;
+}
+
+/* forms */
+
+.field_with_errors {
+  @extend .control-group.error;
 }
 
 /* miscellaneous */

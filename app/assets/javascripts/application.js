@@ -12,4 +12,5 @@
 //
 //= require zepto
 //= require components/rails-behaviors
+//= require turbolinks
 //= require_tree .

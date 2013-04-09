@@ -1,0 +1,5 @@
+<% if @saved %>
+  Turbolinks.visit("<%= decision_path @decision %>");
+<% else %>
+  $('#new_decision_form').html("<%= escape_javascript render('new_decision_form') %>");
+<% end %>

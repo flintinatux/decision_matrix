@@ -1,15 +1,20 @@
-.row-fluid
-  .span12
-    - if @decisions.any?
-      %ul.nav.nav-list
-        = render @decisions
-      = will_paginate
+#header
+  %h3 Your decisions
 
-    - else
-      %h3.center Looks like you don't have any decisions yet! 
-      %p.center Click the button below to start a new one.
+- if @decisions.any?
+  %ul.nav.nav-tabs.nav-stacked
+    = render @decisions
+  .center= will_paginate previous_label: 'Prev', next_label: 'Next'
 
-.row-fluid
-  .span12
-    .center
-      = link_to 'New decision', new_decision_path, class: 'btn btn-large btn-primary'
+- else
+  %h4.center Looks like you don't have any decisions yet! 
+  %p.center Click the button below to start a new one.
+
+%hr
+= link_to '#', class: 'btn' do
+  %i.icon-off
+  Sign out
+.pull-right
+  = link_to new_decision_path, class: 'btn btn-primary' do
+    New decision
+    %i.icon-plus.icon-white
