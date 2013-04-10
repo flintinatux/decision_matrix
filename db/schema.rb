@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408011314) do
+ActiveRecord::Schema.define(:version => 20130410031445) do
+
+  create_table "criteria", :force => true do |t|
+    t.string   "name"
+    t.integer  "weight"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "decisions", :force => true do |t|
     t.string   "question"
