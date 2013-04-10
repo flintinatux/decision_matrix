@@ -49,14 +49,14 @@ describe DecisionsController do
     end
 
     describe 'PUT #update' do
-      let(:new_title) { 'New title' }
+      let(:new_question) { 'New question' }
       before do
-        put :update, format: :js, id: decision.id, decision: FactoryGirl.attributes_for(:decision).merge(title: new_title)
+        put :update, format: :js, id: decision.id, decision: FactoryGirl.attributes_for(:decision).merge(question: new_question)
       end
       it_should_behave_like "a decision finder"
 
       it "updates the decision" do
-        Decision.find(decision.id).title.should eq new_title
+        Decision.find(decision.id).question.should eq new_question
       end
     end
   end

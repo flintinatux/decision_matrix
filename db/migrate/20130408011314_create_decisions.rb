@@ -1,7 +1,7 @@
 class CreateDecisions < ActiveRecord::Migration
   def change
     create_table :decisions do |t|
-      t.string :title
+      t.string :question
       t.string :notes
 
       t.timestamps

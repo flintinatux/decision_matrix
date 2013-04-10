@@ -1,7 +1,7 @@
 = form_for @decision, remote: true, format: :js do |f|
-  = f.label :title, class: 'control-label'
-  = f.text_field :title, placeholder: 'Who, what, where, when, why?', autofocus: true, class: :span1
-  = render 'shared/field_error_message', object: @decision, field: :title
+  = f.label :question, class: 'control-label'
+  = f.text_field :question, placeholder: 'Who, what, where, when, why?', autofocus: true, class: :span1
+  = render 'shared/field_error_message', object: @decision, field: :question
   = f.label :notes, 'Notes (optional)', class: 'control-label'
   = f.text_area :notes, placeholder: 'Just some notes for yourself about the decision.', rows: 3, class: :span1
   = render 'shared/field_error_message', object: @decision, field: :notes
