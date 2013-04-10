@@ -1,13 +1,10 @@
-#header{ href: edit_decision_path(@decision) }
-  %h3.span12= @decision.question
-  - if @decision.notes?
-    %p.muted= @decision.notes
+= render 'layouts/header', title: @decision.question, small_title: @decision.notes, url: edit_decision_path(@decision)
 
 %ul.nav.nav-tabs.nav-stacked
   %li
-    = link_to '#' do
+    = link_to decision_criteria_path(@decision) do
       %strong Criteria 
-      (5)
+      = "(#{@decision.criteria.count})"
       %i.icon-chevron-right.pull-right
   %li
     = link_to '#' do
@@ -15,13 +12,6 @@
       (3)
       %i.icon-chevron-right.pull-right
 
-%hr
-
-= link_to decisions_path, class: 'btn' do
-  %icon.icon-chevron-left
-  Back
-
-.pull-right
-  = link_to '#', class: 'btn btn-primary' do
-    Decide it!
-    %icon.icon-ok.icon-white
+= render layout: 'layouts/action_bar', locals: { back_path: decisions_path, action_path: '#' } do
+  Decide it!
+  %icon.icon-ok.icon-white

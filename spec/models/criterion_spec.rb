@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Criterion do
-  let(:criterion) { Criterion.new name: 'Name', weight: 5 }
+  let(:criterion) { Criterion.new name: 'Name' }
   subject { criterion }
 
   it { should respond_to :name }
@@ -35,5 +35,9 @@ describe Criterion do
   context "when weight is greater than 10" do
     before { subject.weight = 11 }
     it_should_behave_like "an invalid criterion"
+  end
+
+  it "defaults the weight to 5" do
+    subject.weight.should eq 5
   end
 end

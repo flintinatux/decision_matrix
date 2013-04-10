@@ -1,0 +1,14 @@
+= render 'layouts/header', title: 'Criteria'
+
+- if @criteria.any?
+  %ul.nav.nav-tabs.nav-stacked
+    = render @criteria
+  .center= will_paginate
+
+- else
+  %h4.center You'll need to have some criteria in order to make a decision. 
+  %p.center Click the button below to create a new one.
+
+= render layout: 'layouts/action_bar', locals: { back_path: @decision, action_path: new_decision_criterion_path(@decision) } do
+  New criterion
+  %i.icon-plus.icon-white

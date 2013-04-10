@@ -1,7 +1,9 @@
 DecisionMatrix::Application.routes.draw do
   root to: 'decisions#index'
   
-  resources :decisions
+  resources :decisions do
+    resources :criteria, except: [:show]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

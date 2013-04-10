@@ -3,6 +3,7 @@ class CreateCriteria < ActiveRecord::Migration
     create_table :criteria do |t|
       t.string :name
       t.integer :weight
+      t.integer :decision_id
 
       t.timestamps
     end

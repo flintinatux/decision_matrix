@@ -1,10 +1,9 @@
-#header
-  %h3 Your decisions
+= render 'layouts/header', title: 'Your decisions'
 
 - if @decisions.any?
   %ul.nav.nav-tabs.nav-stacked
     = render @decisions
-  .center= will_paginate previous_label: 'Prev', next_label: 'Next'
+  .center= will_paginate
 
 - else
   %h4.center Looks like you don't have any decisions yet! 
