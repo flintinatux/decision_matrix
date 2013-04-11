@@ -1,5 +1,5 @@
 class DecisionsController < ApplicationController
-  before_filter :fetch_decision, only: [:show, :edit, :update, :delete]
+  before_filter :fetch_decision, only: [:show, :edit, :update, :destroy]
 
   def index
     @decisions = Decision.paginate page: params[:page], per_page: 5
@@ -24,7 +24,7 @@ class DecisionsController < ApplicationController
     @updated = @decision.update_attributes params[:decision]
   end
 
-  def delete
+  def destroy
   end
 
   private

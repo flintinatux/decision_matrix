@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 # Backend
 gem 'bcrypt-ruby'
 gem 'pg'
+gem 'unicorn'
 
 # Frontend
 gem 'bootstrap-sass'

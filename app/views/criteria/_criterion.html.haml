@@ -1,4 +1,4 @@
 %li
-  = link_to edit_decision_criterion(criterion) do
-    .pull-right= criterion.weight
+  = link_to edit_decision_criterion_path(@decision, criterion) do
+    %strong.pull-right= criterion.weight
     = criterion.name

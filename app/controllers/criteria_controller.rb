@@ -1,6 +1,6 @@
 class CriteriaController < ApplicationController
   before_filter :fetch_decision
-  before_filter :fetch_criterion, only: [:edit, :update, :delete]
+  before_filter :fetch_criterion, only: [:edit, :update, :destroy]
 
   def index
     @criteria = @decision.criteria.paginate page: params[:page], per_page: 5
@@ -11,15 +11,18 @@ class CriteriaController < ApplicationController
   end
 
   def create
+    @criterion = @decision.criteria.build params[:criterion]
+    @saved = @criterion.save
   end
 
   def edit
   end
 
   def update
+    @updated = @criterion.update_attributes params[:criterion]
   end
 
-  def delete
+  def destroy
   end
 
   private

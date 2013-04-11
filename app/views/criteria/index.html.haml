@@ -1,4 +1,4 @@
-= render 'layouts/header', title: 'Criteria'
+= render 'layouts/header', title: 'Criteria', small_title: @decision.question
 
 - if @criteria.any?
   %ul.nav.nav-tabs.nav-stacked

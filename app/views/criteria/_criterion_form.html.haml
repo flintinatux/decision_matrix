@@ -1,6 +1,6 @@
 = form_for [@decision, @criterion], remote: true, format: :js do |f|
   = f.label :name, class: 'control-label'
-  = f.text_field :name, placeholder: 'Criteria', autofocus: true, class: :span12
+  = f.text_field :name, placeholder: 'Criteria', class: :span12
   = render 'shared/field_error_message', object: @criterion, field: :name
   = f.label :weight, class: 'control-label'
   = f.select :weight, ten_to_one_options(@criterion.weight), {}, class: 'input-mini'
