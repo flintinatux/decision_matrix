@@ -1,0 +1,5 @@
+= form_for [@decision, @choice], remote: true, format: :js do |f|
+  = f.label :name, class: 'control-label'
+  = f.text_field :name, placeholder: 'Choice', class: :span12
+  = render 'shared/field_error_message', object: @choice, field: :name
+  = render 'shared/form_actions', back_path: decision_choices_path(@decision)

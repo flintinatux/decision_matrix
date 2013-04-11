@@ -7,9 +7,9 @@
       = "(#{@decision.criteria.count})"
       %i.icon-chevron-right.pull-right
   %li
-    = link_to '#' do
+    = link_to decision_choices_path(@decision) do
       %strong Choices 
-      (3)
+      = "(#{@decision.choices.count})"
       %i.icon-chevron-right.pull-right
 
 = render layout: 'layouts/action_bar', locals: { back_path: decisions_path, action_path: '#' } do

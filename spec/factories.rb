@@ -4,6 +4,10 @@ FactoryGirl.define do
   end
 
   factory :criterion do
-    name    'Salary'
+    name     'Salary'
+  end
+
+  factory :choice do
+    name     'Engineering'
   end
 end
