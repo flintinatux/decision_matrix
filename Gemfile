@@ -4,8 +4,9 @@ gem 'rails', '3.2.13'
 
 # Backend
 gem 'bcrypt-ruby'
+gem 'foreman'
 gem 'pg'
-gem 'unicorn'
+gem 'puma', '~> 2.0.0.b7'
 
 # Frontend
 gem 'bootstrap-sass'

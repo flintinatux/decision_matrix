@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require zepto
-//= require zepto/touch
+//= require zepto/fx_methods
 //= require components/rails-behaviors
 //= require turbolinks
 //= require_tree .
