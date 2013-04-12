@@ -3,7 +3,10 @@ DecisionMatrix::Application.routes.draw do
   
   resources :decisions do
     resources :criteria, except: [:show]
-    resources :choices,  except: [:show]
+    resources :scores,   only:   [:index]
+    resources :choices,  except: [:show] do
+      resources :scores, except: [:show, :new, :edit]
+    end
   end
 
   # The priority is based upon order of creation:

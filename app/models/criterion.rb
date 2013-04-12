@@ -23,6 +23,10 @@ class Criterion < ActiveRecord::Base
 
   default_scope order: 'created_at asc'
 
+  def <=>(other)
+    self.created_at <=> other.created_at
+  end
+
   private
 
     def set_defaults

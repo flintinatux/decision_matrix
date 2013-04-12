@@ -4,11 +4,13 @@ FactoryGirl.define do
   end
 
   factory :criterion do
+    association :decision
     name     'Salary'
     weight   5
   end
 
   factory :choice do
+    association :decision
     name     'Engineering'
   end
 

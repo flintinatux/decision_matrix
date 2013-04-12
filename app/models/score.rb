@@ -11,13 +11,17 @@
 #
 
 class Score < ActiveRecord::Base
-  attr_accessible :value
+  attr_accessible :value, :choice, :criterion
   belongs_to :choice
   belongs_to :criterion
 
   after_initialize :set_defaults
 
   validates :value, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 10 }
+
+  def <=>(other)
+    self.criterion <=> other.criterion
+  end
 
   private
 

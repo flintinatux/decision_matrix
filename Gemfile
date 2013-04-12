@@ -4,7 +4,6 @@ gem 'rails', '3.2.13'
 
 # Backend
 gem 'bcrypt-ruby'
-gem 'foreman'
 gem 'pg'
 gem 'puma', '~> 2.0.0.b7'
 
@@ -31,6 +30,7 @@ end
 group :development do
   gem 'annotate'
   gem 'bower-rails'
+  gem 'foreman'
   gem 'haml-rails'
 end
 

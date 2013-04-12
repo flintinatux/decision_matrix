@@ -28,10 +28,10 @@ class ChoicesController < ApplicationController
   private
 
     def fetch_choice
-      @choice = Choice.find params[:id]
+      @choice = Choice.find_by_id params[:id]
     end
 
     def fetch_decision
-      @decision = Decision.find params[:decision_id]
+      @decision = Decision.find_by_id params[:decision_id]
     end
 end
