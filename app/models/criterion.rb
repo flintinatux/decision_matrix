@@ -1,6 +1,20 @@
+# == Schema Information
+#
+# Table name: criteria
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  weight      :integer
+#  decision_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Criterion < ActiveRecord::Base
   attr_accessible :name, :weight
   belongs_to :decision
+  has_many :scores
+  has_many :choices, through: :scores
 
   after_initialize :set_defaults
 
@@ -12,6 +26,6 @@ class Criterion < ActiveRecord::Base
   private
 
     def set_defaults
-      self.weight ||= 5
+      self.weight ||= 0
     end
 end

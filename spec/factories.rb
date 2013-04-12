@@ -5,9 +5,16 @@ FactoryGirl.define do
 
   factory :criterion do
     name     'Salary'
+    weight   5
   end
 
   factory :choice do
     name     'Engineering'
+  end
+
+  factory :score do
+    association :choice
+    association :criterion
+    value    5
   end
 end

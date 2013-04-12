@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: decisions
+#
+#  id         :integer          not null, primary key
+#  question   :string(255)
+#  notes      :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Decision do

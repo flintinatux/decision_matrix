@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: choices
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  decision_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Choice do
@@ -6,6 +17,8 @@ describe Choice do
 
   it { should respond_to :name }
   it { should respond_to :decision }
+  it { should respond_to :scores }
+  it { should respond_to :criteria }
   it { should be_valid }
 
   context "when name is blank" do

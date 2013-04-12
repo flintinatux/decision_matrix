@@ -1,14 +1,26 @@
+# == Schema Information
+#
+# Table name: criteria
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  weight      :integer
+#  decision_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Criterion do
-  let(:criterion) { Criterion.new name: 'Name' }
+  let(:criterion) { Criterion.new name: 'Name', weight: 5 }
   subject { criterion }
 
   it { should respond_to :name }
   it { should respond_to :weight }
   it { should respond_to :decision }
-  # it { should respond_to :scores }
-  # it { should respond_to :choices }
+  it { should respond_to :scores }
+  it { should respond_to :choices }
   it { should be_valid }
 
   shared_examples "an invalid criterion" do
@@ -37,7 +49,7 @@ describe Criterion do
     it_should_behave_like "an invalid criterion"
   end
 
-  it "defaults the weight to 5" do
-    subject.weight.should eq 5
+  it "defaults the weight to 0" do
+    Criterion.new.weight.should eq 0
   end
 end
