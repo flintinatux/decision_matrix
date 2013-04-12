@@ -11,12 +11,15 @@ class ChoicesController < ApplicationController
   end
 
   def create
+    @choice = @decision.choices.build params[:choice]
+    @saved = @choice.save
   end
 
   def edit
   end
 
   def update
+    @updated = @choice.update_attributes params[:choice]
   end
 
   def destroy
