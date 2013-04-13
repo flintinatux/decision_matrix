@@ -1,3 +1,23 @@
 // Place all the styles related to the Scores controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+form#scores {
+  .control-label {
+    float: left;
+    padding-top: 5px;
+  }
+
+  select {
+    float: right;
+  }
+
+  .field_with_errors {
+    .help-block {
+      float: right;
+      padding-top: 5px;
+      margin-right: 5px;
+    }
+  }
+}

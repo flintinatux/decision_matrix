@@ -3,7 +3,7 @@ class ChoicesController < ApplicationController
   before_filter :fetch_choice, only: [:edit, :update, :destroy]
 
   def index
-    @choices = @decision.choices.paginate page: params[:page], per_page: 5
+    @choices = @decision.choices
   end
 
   def new

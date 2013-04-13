@@ -1,0 +1,10 @@
+= form_for @choice, url: decision_choice_scores_path(@decision, @choice), method: :post, remote: true, format: :js, html: { id: :scores } do |choice_form|
+  = choice_form.fields_for :scores, @choice.scores.sort do |score_fields|
+    .row
+      .score.span12
+        - score = score_fields.object
+        = score_fields.hidden_field :criterion_id
+        %strong.control-label= score.criterion.name
+        = score_fields.select :value, ten_to_one_options(score.value), {}, class: 'input-mini'
+        = render 'shared/field_error_message', object: score, field: :value
+  = render 'shared/form_actions'

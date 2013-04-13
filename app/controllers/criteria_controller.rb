@@ -3,7 +3,7 @@ class CriteriaController < ApplicationController
   before_filter :fetch_criterion, only: [:edit, :update, :destroy]
 
   def index
-    @criteria = @decision.criteria.paginate page: params[:page], per_page: 5
+    @criteria = @decision.criteria
   end
 
   def new

@@ -1,5 +1,5 @@
 - href = defined?(url) ? { href: url } : {}
-#header{ href }
-  %h3.span12= title
+#header.span12{ href }
+  %h3= title
   - if defined?(small_title) && small_title.present?
     %p.muted= small_title

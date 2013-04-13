@@ -13,6 +13,7 @@ class Decision < ActiveRecord::Base
   attr_accessible :notes, :question
   has_many :criteria
   has_many :choices
+  has_many :scores, through: :choices
 
   validates :question, presence: true
 

@@ -3,10 +3,11 @@
 - if @choices.any?
   %ul.nav.nav-tabs.nav-stacked
     = render @choices
-  .center= will_paginate
+  - if @choices.length < 2
+    #one_more.alert.alert-info.center You still need one more choice.
 
 - else
-  %h4.center You'll need to have some choices in order to make a decision. 
+  %h4.center You'll need to have at least two choices in order to make a decision.
   %p.center Click the button below to create a new one.
 
 = render layout: 'layouts/action_bar', locals: { back_path: @decision, action_path: new_decision_choice_path(@decision) } do

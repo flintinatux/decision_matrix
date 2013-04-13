@@ -1,4 +1,4 @@
-= render 'layouts/header', title: 'Scores', small_title: @choice.name
+= render 'layouts/header', title: 'Scores', small_title: "#{@choice.name}"
 
-= form_tag decision_choice_scores_path(@decision, @choice), remote: true, format: :js do
-  - @scores.each do |score|
+#scores_form
+  = render 'scores_form'

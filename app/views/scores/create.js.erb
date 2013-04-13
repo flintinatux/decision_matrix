@@ -1,0 +1,5 @@
+<% if @updated %>
+  Turbolinks.visit("<%= next_page %>");
+<% else %>
+  $('#scores_form').html("<%= escape_javascript render('scores_form') %>");
+<% end %>

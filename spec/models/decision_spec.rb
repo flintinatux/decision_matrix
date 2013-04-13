@@ -18,7 +18,8 @@ describe Decision do
   it { should respond_to :question }
   it { should respond_to :notes }
   it { should respond_to :criteria }
-  # it { should respond_to :choices }
+  it { should respond_to :choices }
+  it { should respond_to :scores }
   it { should be_valid }
 
   context "when question is blank" do

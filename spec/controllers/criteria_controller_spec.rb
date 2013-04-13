@@ -4,7 +4,7 @@ describe CriteriaController do
   let(:decision) { FactoryGirl.create :decision }
 
   context "with some existing criteria" do
-    let(:criteria) { 2.times.map { FactoryGirl.create(:criterion, decision_id: decision.id) } }
+    let!(:criteria) { 2.times.map { FactoryGirl.create(:criterion, decision_id: decision.id) } }
 
     describe 'GET #index' do
       before { get :index, decision_id: decision }

@@ -23,27 +23,49 @@ $grayMediumLight: #eaeaea;
   padding-bottom: 7px;
   margin: 10px 0 20px;
   border-bottom: 1px solid #eee;
+  @include ellipsized_text;
 
   h3 {
     @include ellipsized_text;
-    margin: 0;
+    margin: 0 4px 0 0;
+    display: inline-block;
   }
 
   p {
     @include ellipsized_text;
+    display: inline-block;
   }
 }
 
 /* navigation */
 
 ul.nav.nav-tabs.nav-stacked {
-  a {
-    @include ellipsized_text;
+  li {
+    a {
+      @include ellipsized_text;
+
+      &:hover, &:focus {
+        color: $linkColor;
+        background-color: $white;
+      }
+
+      i {
+        margin-top: 2px;
+      }
+    }
   }
 }
 
 [href]:hover {
   cursor: pointer;
+}
+
+/* forms */
+
+form {
+  [class*="span"] {
+    @include ellipsized_text
+  }
 }
 
 /* buttons */

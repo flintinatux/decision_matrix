@@ -5,7 +5,7 @@ DecisionMatrix::Application.routes.draw do
     resources :criteria, except: [:show]
     resources :scores,   only:   [:index]
     resources :choices,  except: [:show] do
-      resources :scores, except: [:show, :new, :edit]
+      resources :scores, only:   [:index, :create]
     end
   end
 

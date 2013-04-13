@@ -1,16 +1,29 @@
 = render 'layouts/header', title: 'Decision', small_title: @decision.question, url: edit_decision_path(@decision)
 
+%p First setup your choices and criteria:
 %ul.nav.nav-tabs.nav-stacked
-  %li
-    = link_to decision_criteria_path(@decision) do
-      %strong Criteria 
-      = "(#{@decision.criteria.count})"
-      %i.icon-chevron-right.pull-right
   %li
     = link_to decision_choices_path(@decision) do
       %strong Choices 
-      = "(#{@decision.choices.count})"
-      %i.icon-chevron-right.pull-right
+      = "(#{choices.count})"
+      = ok_if enough_choices?
+  %li
+    = link_to decision_criteria_path(@decision) do
+      %strong Criteria 
+      = "(#{criteria.count})"
+      = ok_if enough_criteria?
+
+%p Then assign them scores:
+%ul.nav.nav-tabs.nav-stacked
+  %li
+    - if scores_enabled?
+      = link_to decision_scores_path(@decision) do
+        %strong Scores
+        = ok_if scores_completed?
+    - else
+      = link_to '#', data: { 'no-turbolink' => true } do
+        %strong.muted Scores
+        %i.icon-ban-circle.pull-right
 
 = render layout: 'layouts/action_bar', locals: { back_path: decisions_path, action_path: '#' } do
   Decide it!

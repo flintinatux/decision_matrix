@@ -11,7 +11,7 @@
 #
 
 class Score < ActiveRecord::Base
-  attr_accessible :value, :choice, :criterion
+  attr_accessible :value, :criterion, :criterion_id
   belongs_to :choice
   belongs_to :criterion
 

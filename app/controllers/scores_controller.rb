@@ -9,6 +9,10 @@ class ScoresController < ApplicationController
     fetch_scores
   end
 
+  def create
+    @updated = @choice.update_attributes params[:choice]
+  end
+
   private
 
     def fetch_choice
@@ -27,16 +31,6 @@ class ScoresController < ApplicationController
     def load_new_scores
       @decision.criteria.map do |criterion|
         @choice.scores.build criterion: criterion
-      end
-    end
-
-    def next_page
-      choices = @decision.choices
-      next_choice = choices.index(@choice) + 1
-      if next_choice >= choices.length
-        decision_path @decision 
-      else
-        decision_choice_scores_path @decision, choices[next_choice]
       end
     end
 end

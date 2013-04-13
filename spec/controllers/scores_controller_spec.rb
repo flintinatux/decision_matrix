@@ -46,4 +46,33 @@ describe ScoresController do
       end
     end
   end
+
+  describe 'POST #create' do
+    let(:valid_attributes) do
+      { scores_attributes: criteria.map do |criterion|
+          FactoryGirl.attributes_for :score, choice: choice, criterion: criterion
+        end }
+    end
+    let(:invalid_attributes) do
+      { scores_attributes: criteria.map do |criterion|
+          FactoryGirl.attributes_for :score, value: 0, choice: choice, criterion: criterion
+        end }
+    end
+
+    context "with valid params" do
+      it "creates new scores" do
+        expect do 
+          post :create, format: :js, decision_id: decision, choice_id: choice, choice: valid_attributes
+        end.to change(Score, :count).by(3)
+      end
+    end
+
+    context "with invalid params" do
+      it "doesn't create any scores" do
+        expect do 
+          post :create, format: :js, decision_id: decision, choice_id: choice, choice: invalid_attributes
+        end.to_not change(Score, :count)
+      end
+    end
+  end
 end
