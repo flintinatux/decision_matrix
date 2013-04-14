@@ -1,6 +1,5 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
-@import "ui-spinner";
 
 /* mixins, variables, etc. */
 
@@ -83,13 +82,17 @@ form {
 
 /* spinner */
 
-.ui-spinner {
-  position: absolute;
-  top: 50%;
-  margin-top: -23px;
-  left: 50%;
-  margin-left: -23px;
-}
+// #spinner {
+//   opacity: 0.0;
+
+//   .ui-spinner {
+//     position: absolute;
+//     top: 50%;
+//     margin-top: -23px;
+//     left: 50%;
+//     margin-left: -23px;
+//   }
+// }
 
 /* miscellaneous */
 
