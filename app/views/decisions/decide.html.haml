@@ -1,0 +1,21 @@
+= render 'layouts/header', title: 'Final decision'
+
+#top_score
+  - top_choice = @choices.shift
+  %h3.center= top_choice.name
+  %p.text-info.center Top choice
+  %h1.center= top_choice.total_score
+  %p.text-info.center Total score
+
+%p.muted Other choices:
+%table.table.table-condensed
+  %tbody
+    - @choices.each do |choice|
+      %tr
+        %td
+          %strong= choice.name
+        %td.right= choice.total_score
+
+= render layout: 'layouts/action_bar', locals: { back_path: @decision, action_path: decisions_path } do
+  Awesome!
+  %icon.icon-chevron-right.icon-white

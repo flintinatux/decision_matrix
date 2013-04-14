@@ -25,6 +25,6 @@
         %strong.muted Scores
         %i.icon-ban-circle.pull-right
 
-= render layout: 'layouts/action_bar', locals: { back_path: decisions_path, action_path: '#' } do
+= render layout: 'layouts/action_bar', locals: { back_path: decisions_path, action_path: decide_decision_path(@decision) } do
   Decide it!
   %icon.icon-ok.icon-white

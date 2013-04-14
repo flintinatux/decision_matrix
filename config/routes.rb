@@ -2,6 +2,10 @@ DecisionMatrix::Application.routes.draw do
   root to: 'decisions#index'
   
   resources :decisions do
+    member do
+      get :decide
+    end
+
     resources :criteria, except: [:show]
     resources :scores,   only:   [:index]
     resources :choices,  except: [:show] do

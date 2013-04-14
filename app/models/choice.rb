@@ -19,4 +19,10 @@ class Choice < ActiveRecord::Base
   validates :name, presence: true
   
   default_scope order: 'created_at asc'
+
+  def total_score
+    @total_score ||= scores.inject(0) do |total, score| 
+      total += score.value * score.criterion.weight
+    end
+  end
 end

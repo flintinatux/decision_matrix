@@ -1,8 +1,7 @@
 %hr
-- if defined?(back_path)
-  = link_to back_path, class: 'btn' do
-    %icon.icon-chevron-left
-    Back
+= link_to back_path, class: 'btn' do
+  %icon.icon-chevron-left
+  Back
 .pull-right
   %button.btn.btn-primary{ type: :submit, data: { 'disable-with' => 'Saving...' } }
     Save

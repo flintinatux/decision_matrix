@@ -59,5 +59,24 @@ describe DecisionsController do
         Decision.find(decision.id).question.should eq new_question
       end
     end
+
+    context "with choices amd scores" do
+      let!(:choices) { 3.times.map { FactoryGirl.create :choice, decision: decision } }
+      let!(:criteria) { 3.times.map { FactoryGirl.create :criterion, decision: decision } }
+      let!(:scores) do
+        choices.map do |choice|
+          criteria.map do |criterion|
+            choice.scores.create criterion: criterion, value: choice.id
+          end
+        end.flatten
+      end
+
+      describe 'GET #decide' do
+        before { get :decide, id: decision }
+        it "finds choices ordered by total_score asc" do
+          assigns(:choices).should eq choices.sort_by(&:total_score).reverse
+        end
+      end
+    end
   end
 end
