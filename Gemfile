@@ -15,6 +15,10 @@ gem 'turbolinks'
 gem 'will_paginate'
 gem 'zepto_rails'
 
+group :production do
+  gem 'newrelic_rpm'
+end
+
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'sass-rails',   '~> 3.2.3'
