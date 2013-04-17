@@ -10,6 +10,7 @@ gem 'puma', '~> 2.0.0.b7'
 # Frontend
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
+gem 'font-awesome-sass-rails'
 gem 'haml'
 gem 'turbolinks'
 gem 'will_paginate'
