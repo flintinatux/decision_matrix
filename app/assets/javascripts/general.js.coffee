@@ -18,11 +18,13 @@ $(document).on 'ajaxComplete', ->
 menu_hidden = true
 
 show_menu = () ->
+  $('#menu').css 'visibility', 'visible'
   $('#menu').fadeIn 'fast'
   menu_hidden = false
 
 hide_menu = () ->
-  $('#menu').fadeOut 'fast'
+  $('#menu').fadeOut 'fast', ->
+    $('#menu').css 'visibility', 'hidden'
   menu_hidden = true
 
 $(document).on 'click', '#menu-button', ->

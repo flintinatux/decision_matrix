@@ -75,6 +75,7 @@ $grayMatch: #888;
       background: $grayLighter;
       color: $grayDark;
       list-style: none;
+      visibility: hidden;
       opacity: 0.0;
 
       li {
