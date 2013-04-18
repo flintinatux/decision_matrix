@@ -1,4 +1,6 @@
-= render 'layouts/header', title: 'Choices', small_title: @decision.question
+= render layout: 'layouts/action_bar', locals: { title: 'Choices', back_path: @decision } do
+  = link_to new_decision_choice_path(@decision), class: :action do
+    %icon.icon-plus.icon-2x
 
 - if @choices.any?
   %ul.nav.nav-tabs.nav-stacked
@@ -9,7 +11,4 @@
 - else
   %h4.center You'll need to have at least two choices in order to make a decision.
   %p.center Click the button below to create a new one.
-
-= render layout: 'layouts/action_bar', locals: { back_path: @decision, action_path: new_decision_choice_path(@decision) } do
-  New choice
-  %i.icon-plus.icon-white
+  

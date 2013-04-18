@@ -1,4 +1,6 @@
-= render 'layouts/header', title: 'Final decision'
+= render layout: 'layouts/action_bar', locals: { title: 'Final Decision', back_path: @decision } do
+  = link_to decisions_path, class: :action do
+    %icon.icon-ok.icon-2x
 
 #top_score
   - top_choice = @choices.shift
@@ -15,7 +17,3 @@
         %td
           %strong= choice.name
         %td.right= choice.total_score
-
-= render layout: 'layouts/action_bar', locals: { back_path: @decision, action_path: decisions_path } do
-  Awesome!
-  %icon.icon-chevron-right.icon-white

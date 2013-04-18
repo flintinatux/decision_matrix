@@ -1,4 +1,11 @@
-= render 'layouts/header', title: 'Your decisions'
+= render layout: 'layouts/action_bar', locals: { title: 'Your Decisions', back_path: '#' } do
+  = link_to new_decision_path, class: :action do
+    %icon.icon-plus.icon-2x
+  %icon#menu-button.action.icon-reorder.icon-2x
+  %ul#menu.shadow
+    %li Settings
+    %li.separator
+    %li Sign out
 
 - if @decisions.any?
   %ul.nav.nav-tabs.nav-stacked
@@ -8,12 +15,3 @@
 - else
   %h4.center Looks like you don't have any decisions yet! 
   %p.center Click the button below to start a new one.
-
-%hr
-= link_to '#', class: 'btn' do
-  %i.icon-off
-  Sign out
-.pull-right
-  = link_to new_decision_path, class: 'btn btn-primary' do
-    New decision
-    %i.icon-plus.icon-white

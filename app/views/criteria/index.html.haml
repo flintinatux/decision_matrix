@@ -1,4 +1,6 @@
-= render 'layouts/header', title: 'Criteria', small_title: @decision.question
+= render layout: 'layouts/action_bar', locals: { title: 'Criteria', back_path: @decision } do
+  = link_to new_decision_criterion_path(@decision), class: :action do
+    %icon.icon-plus.icon-2x
 
 - if @criteria.any?
   %ul.nav.nav-tabs.nav-stacked
@@ -8,7 +10,3 @@
   %h4.center You'll need to have at least one criterion in order to make a decision.
   %p.center (Although more would be better!)
   %p.center Click the button below to create a new one.
-
-= render layout: 'layouts/action_bar', locals: { back_path: @decision, action_path: new_decision_criterion_path(@decision) } do
-  New criterion
-  %i.icon-plus.icon-white

@@ -1,5 +1,5 @@
 <% if @saved %>
   Turbolinks.visit("<%= decision_criteria_path @decision %>");
 <% else %>
-  $('#criterion_form').html("<%= escape_javascript render('criterion_form') %>");
+  $('#new_criterion_form').html("<%= escape_javascript render('new_criterion_form') %>");
 <% end %>

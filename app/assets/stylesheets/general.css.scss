@@ -4,7 +4,7 @@
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+$grayMatch: #888;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -16,6 +16,102 @@ $grayMediumLight: #eaeaea;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* content */
+
+#content {
+  margin-top: 70px;
+}
+
+/* action bar */
+
+#action_bar {
+  background: $grayLighter;
+  color: $grayDark;
+  border-bottom: 1px solid $grayMatch;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 48px;
+  width: 100%;
+
+  #title {
+    display: inline-block;
+    margin: 13px 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  @mixin action {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 9px;
+    color: $grayMatch;
+    text-align: center;
+
+    &:hover, &:focus {
+      color: $grayMatch;
+      text-decoration: none;
+    }
+  }
+
+  #actions {
+    float: right;
+
+    .action {
+      @include action;
+
+      &#spinner {
+        opacity: 0.0;
+      }
+    }
+
+    ul#menu {
+      position: fixed;
+      top: 49px;
+      right: 8px;
+      background: $grayLighter;
+      color: $grayDark;
+      list-style: none;
+      opacity: 0.0;
+
+      li {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 14px 10px;
+        min-width: 160px;
+
+
+        &.separator {
+          height: 1px;
+          padding: 0;
+          background: #ccc;
+        }
+      }
+    }
+  }
+
+  #back_action {
+    float: left;
+
+    .action {
+      @include action;
+      width: auto;
+      padding: 9px 9px 9px 6px;
+
+      icon#app_icon {
+        color: $blueDark;
+      }
+    }
+  }
+}
+
+.shadow {
+  -moz-box-shadow:    -1px 3px 8px 0px #aaa;
+  -webkit-box-shadow: -1px 3px 8px 0px #aaa;
+  box-shadow:         -1px 3px 8px 0px #aaa;
 }
 
 /* headers */
@@ -81,31 +177,19 @@ form {
   @extend .control-group.error;
 }
 
-/* action bar */
-
-#action_bar {
-  border-top: 1px solid #eee;
-  padding-top: 20px;
-  padding-bottom: 19px;
-  background: white;
-  position: absolute;
-  bottom: 0%;
-  margin-top: -35px;
-}
-
 /* spinner */
 
-// #spinner {
-//   opacity: 0.0;
-
-//   .ui-spinner {
-//     position: absolute;
-//     top: 50%;
-//     margin-top: -23px;
-//     left: 50%;
-//     margin-left: -23px;
-//   }
-// }
+#page-spinner {
+  position: fixed;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin-top: -43px;
+  margin-left: -23px;
+  text-align: center;
+  color: $blueDark;
+  opacity: 0.0;
+}
 
 /* miscellaneous */
 

@@ -1,7 +1,11 @@
-%hr
-= link_to back_path, class: 'btn' do
-  %icon.icon-chevron-left
-  Back
-.pull-right
-  = link_to action_path, class: 'btn btn-primary' do
-    = yield
+#action_bar
+  #back_action
+    = link_to back_path, class: 'action' do
+      %icon.icon-angle-left.icon-2x
+      %icon#app_icon.icon-fullscreen.icon-2x
+  %p#title= title
+  #actions
+    %icon#spinner.action.icon-spinner.icon-2x.icon-spin
+    - if block_given?
+      = yield
+      

@@ -1,4 +1,8 @@
-= render 'layouts/header', title: 'Decision', small_title: @decision.question, url: edit_decision_path(@decision)
+= render layout: 'layouts/action_bar', locals: { title: 'Decision', back_path: decisions_path } do
+  = link_to edit_decision_path(@decision), class: :action do
+    %icon.icon-pencil.icon-2x
+  = link_to decide_decision_path(@decision), class: :action do
+    %icon.icon-legal.icon-2x
 
 %p First setup your choices and criteria:
 %ul.nav.nav-tabs.nav-stacked
@@ -24,7 +28,3 @@
       = link_to '#', data: { 'no-turbolink' => true } do
         %strong.muted Scores
         %i.icon-ban-circle.pull-right
-
-= render layout: 'layouts/action_bar', locals: { back_path: decisions_path, action_path: decide_decision_path(@decision) } do
-  Decide it!
-  %icon.icon-ok.icon-white

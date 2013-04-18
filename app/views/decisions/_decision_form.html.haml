@@ -5,4 +5,6 @@
   = f.label :notes, 'Notes (optional)', class: 'control-label'
   = f.text_area :notes, placeholder: 'Just some notes for yourself about the decision.', rows: 3, class: :span12
   = render 'shared/field_error_message', object: @decision, field: :notes
-  = render 'shared/form_actions', back_path: back_path
+  = render layout: 'layouts/action_bar', locals: { title: title, back_path: back_path } do
+    = link_to '#', class: :action, onclick: submit_form do
+      %icon.icon-save.icon-2x

@@ -5,4 +5,6 @@
   = f.label :weight, class: 'control-label'
   = f.select :weight, ten_to_one_options(@criterion.weight), {}, class: 'input-mini'
   = render 'shared/field_error_message', object: @criterion, field: :weight
-  = render 'shared/form_actions', back_path: decision_criteria_path(@decision)
+  = render layout: 'layouts/action_bar', locals: { title: title, back_path: decision_criteria_path(@decision) } do
+    = link_to '#', class: :action, onclick: submit_form do
+      %icon.icon-save.icon-2x

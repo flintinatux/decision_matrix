@@ -1,4 +1,8 @@
 = form_for @choice, url: decision_choice_scores_path(@decision, @choice), method: :post, remote: true, format: :js, html: { id: :scores } do |choice_form|
+  %p#choice.text-info
+    %strong For choice:
+    %span.pull-right= @choice.name
+  %hr
   = choice_form.fields_for :scores, @choice.scores.sort do |score_fields|
     .row
       .score.span12
@@ -7,4 +11,6 @@
         %strong.control-label= score.criterion.name
         = score_fields.select :value, ten_to_one_options(score.value), {}, class: 'input-mini'
         = render 'shared/field_error_message', object: score, field: :value
-  = render 'shared/form_actions'
+  = render layout: 'layouts/action_bar', locals: { title: 'Scores', back_path: back_path } do
+    = link_to '#', class: :action, onclick: submit_form do
+      %icon.icon-save.icon-2x
