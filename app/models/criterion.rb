@@ -13,7 +13,7 @@
 class Criterion < ActiveRecord::Base
   attr_accessible :name, :weight
   belongs_to :decision
-  has_many :scores
+  has_many :scores, dependent: :destroy
   has_many :choices, through: :scores
 
   after_initialize :set_defaults

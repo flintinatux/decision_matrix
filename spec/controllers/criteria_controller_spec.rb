@@ -57,5 +57,28 @@ describe CriteriaController do
         Criterion.find(criterion.id).name.should eq new_name
       end
     end
+
+    context "and some scores" do
+      let(:choices) { 3.times.map { FactoryGirl.create :choice, decision: decision } }
+      let!(:scores) do
+        choices.map do |choice|
+          FactoryGirl.create :score, choice: choice, criterion: criterion
+        end
+      end
+
+      describe 'DELETE #destroy' do
+        it "deletes the criterion" do
+          expect { delete :destroy, format: :js, decision_id: decision, id: criterion }.to change(Criterion, :count).by(-1)
+        end
+
+        describe 'deleting the criterion' do
+          before { delete :destroy, format: :js, decision_id: decision, id: criterion }
+
+          it "also deletes the corresponding scores" do
+            Score.where(criterion_id: criterion).should be_empty
+          end
+        end
+      end
+    end
   end
 end

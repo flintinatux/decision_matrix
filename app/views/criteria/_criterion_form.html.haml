@@ -6,5 +6,8 @@
   = f.select :weight, ten_to_one_options(@criterion.weight), {}, class: 'input-mini'
   = render 'shared/field_error_message', object: @criterion, field: :weight
   = render layout: 'layouts/action_bar', locals: { title: title, back_path: decision_criteria_path(@decision) } do
+    - if deletable
+      = link_to [@decision, @criterion], class: :action, data: { method: :delete, remote: true, confirm: "Are you sure you want to delete this criterion? You won't be able to recover it later." } do
+        %icon.icon-trash.icon-2x
     = link_to '#', class: :action, onclick: submit_form do
       %icon.icon-save.icon-2x

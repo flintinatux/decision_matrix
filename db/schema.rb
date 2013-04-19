@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412013923) do
+ActiveRecord::Schema.define(:version => 20130419122027) do
 
   create_table "choices", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20130412013923) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "choices", ["decision_id"], :name => "index_choices_on_decision_id"
+
   create_table "criteria", :force => true do |t|
     t.string   "name"
     t.integer  "weight"
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20130412013923) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "criteria", ["decision_id"], :name => "index_criteria_on_decision_id"
 
   create_table "decisions", :force => true do |t|
     t.string   "question"
@@ -42,5 +46,8 @@ ActiveRecord::Schema.define(:version => 20130412013923) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "scores", ["choice_id"], :name => "index_scores_on_choice_id"
+  add_index "scores", ["criterion_id"], :name => "index_scores_on_criterion_id"
 
 end

@@ -4,7 +4,7 @@ $(document).on 'click', '[href]:not(a)', (e) ->
 
 $(document).on 'page:fetch', ->
   $('#content').fadeOut 'slow', ->
-    $('#page-spinner').fadeIn 'slow'
+    $('#page-spinner').fadeIn 'fast'
 
 $(document).on 'page:change', ->
   $('#content').fadeIn 'slow'

@@ -25,12 +25,10 @@ class ScoresController < ApplicationController
 
     def fetch_scores
       @scores = @choice.scores.includes(:criterion)
-      @scores = load_new_scores unless @scores.any?
-    end
-
-    def load_new_scores
-      @decision.criteria.map do |criterion|
-        @choice.scores.build criterion: criterion
+      @decision.criteria.each do |criterion|
+        unless @scores.find{ |score| score.criterion == criterion }
+          @scores << @choice.scores.build(criterion: criterion)
+        end
       end
     end
 end

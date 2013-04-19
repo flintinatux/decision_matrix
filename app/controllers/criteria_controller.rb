@@ -23,6 +23,7 @@ class CriteriaController < ApplicationController
   end
 
   def destroy
+    @criterion.destroy
   end
 
   private

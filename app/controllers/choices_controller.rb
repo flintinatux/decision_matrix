@@ -23,6 +23,7 @@ class ChoicesController < ApplicationController
   end
 
   def destroy
+    @choice.destroy
   end
 
   private

@@ -3,5 +3,8 @@
   = f.text_field :name, placeholder: 'Choice', class: :span12
   = render 'shared/field_error_message', object: @choice, field: :name
   = render layout: 'layouts/action_bar', locals: { title: title, back_path: decision_choices_path(@decision) } do
+    - if deletable
+      = link_to [@decision, @choice], class: :action, data: { method: :delete, remote: true, confirm: "Are you sure you want to delete this choice? You won't be able to recover it later." } do
+        %icon.icon-trash.icon-2x
     = link_to '#', class: :action, onclick: submit_form do
       %icon.icon-save.icon-2x

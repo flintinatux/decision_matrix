@@ -25,6 +25,7 @@ class DecisionsController < ApplicationController
   end
 
   def destroy
+    @decision.destroy
   end
 
   def decide

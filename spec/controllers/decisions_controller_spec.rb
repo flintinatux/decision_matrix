@@ -60,7 +60,7 @@ describe DecisionsController do
       end
     end
 
-    context "with choices amd scores" do
+    context "with choices and scores" do
       let!(:choices) { 3.times.map { FactoryGirl.create :choice, decision: decision } }
       let!(:criteria) { 3.times.map { FactoryGirl.create :criterion, decision: decision } }
       let!(:scores) do
@@ -75,6 +75,24 @@ describe DecisionsController do
         before { get :decide, id: decision }
         it "finds choices ordered by total_score asc" do
           assigns(:choices).should eq choices.sort_by(&:total_score).reverse
+        end
+      end
+
+      describe 'DELETE #destroy' do
+        it "deletes the decision" do
+          expect { delete :destroy, format: :js, id: decision }.to change(Decision, :count).by(-1)
+        end
+
+        describe 'deleting the decision' do
+          before { delete :destroy, format: :js, id: decision }
+
+          it "also deletes its choices" do
+            Choice.where(decision_id: decision.id).should be_empty
+          end
+
+          it "also deletes its criteria" do
+            Criterion.where(decision_id: decision.id).should be_empty
+          end
         end
       end
     end

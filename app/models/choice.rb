@@ -12,7 +12,7 @@
 class Choice < ActiveRecord::Base
   attr_accessible :name, :scores_attributes
   belongs_to :decision
-  has_many :scores
+  has_many :scores, dependent: :destroy
   has_many :criteria, through: :scores
   accepts_nested_attributes_for :scores
 
